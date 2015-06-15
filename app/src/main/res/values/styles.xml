@@ -5,4 +5,34 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- the theme applied to the application or activity -->
+    <style name="CustomActionBarTheme"
+           parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <!-- Define the ActionBar Style -->
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <!-- TODO: (Optional) Add items android:actionMenuTextColor and  or android:actionBarTabTextStyle -->
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="MyActionBar"
+           parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/actionbar_background</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/actionbar_background</item>
+    </style>
+
+    <!-- ActionBar title text -->
+    <style name="MyActionBarTitleText">
+        <!-- TODO: (Optional) add the actionBar title text styles -->
+        <!-- The textColor property is backward compatible with the Support Library -->
+    </style>
+
+    <!-- ActionBar tabs text -->
+    <style name="MyActionBarTabText">
+        <!-- TODO: (Optional) Add the actionBar Tab Text Style -->
+        <!-- The textColor property is backward compatible with the Support Library -->
+    </style>
+
 </resources>
