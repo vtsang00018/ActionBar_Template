@@ -7,6 +7,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- The main/home activity (it has no parent activity) -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -15,6 +17,21 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <!-- Added a child page to create a sample to demo the "UP" button -->
+        <!-- A child of the main activity -->
+        <activity
+            android:name=".NextPage"
+            android:label="@string/title_activity_next_page"
+            android:parentActivityName=".MainActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <!-- add the case android.R.id.home to prevent crash -->
+             <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.vincent.actionbarpractice.MainActivity" />
+
         </activity>
     </application>
 

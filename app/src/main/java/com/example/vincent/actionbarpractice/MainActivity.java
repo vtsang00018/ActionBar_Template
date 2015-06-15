@@ -1,10 +1,13 @@
 package com.example.vincent.actionbarpractice;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 
@@ -26,6 +29,11 @@ public class MainActivity extends ActionBarActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    public void nextActivity(View v){
+        Intent nextIntent = new Intent(this, NextPage.class);
+        startActivity(nextIntent);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -33,19 +41,24 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            // TODO: Add the implementation for the settings menu
-            Toast.makeText(MainActivity.this, "You clicked Settings", Toast.LENGTH_SHORT).show();
-            return true;
-        }
+        switch(id) {
 
-        if(id == R.id.action_search){
-            // TODO: Add the implementation for the search action
-            Toast.makeText(MainActivity.this, "You clicked Search", Toast.LENGTH_SHORT).show();
-            return true;
-        }
+            // TODO: (Optional) add more action bar items
+            //noinspection SimplifiableIfStatement
+            case R.id.action_settings:
+                // TODO: Add the implementation for the settings menu
+                Toast.makeText(MainActivity.this, "You clicked Settings", Toast.LENGTH_SHORT).show();
+                return true;
 
+            case  R.id.action_search:
+                // TODO: Add the implementation for the search action
+                Toast.makeText(MainActivity.this, "You clicked Search", Toast.LENGTH_SHORT).show();
+                return true;
+            // This handles the Up action: finishes the activity and calls the parent activity
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }
